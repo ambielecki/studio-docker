@@ -42,3 +42,14 @@ services:
     working_dir: /var/www/2023-bielecki
     depends_on:
       - php-fpm-82
+
+  2023-divelog-api:
+    container_name: 2023-divelog-api
+    build: ./live-builds/2023-divelog-api
+    environment:
+      - VIRTUAL_HOST=divelog-api.test
+    volumes:
+      - ../2023-divelog-api:/var/www/2023-divelog-api
+    working_dir: /var/www/2023-divelog-api
+    depends_on:
+      - php-fpm-82

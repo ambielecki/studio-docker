@@ -53,3 +53,12 @@ services:
     working_dir: /var/www/2023-divelog-api
     depends_on:
       - php-fpm-82
+
+  2023-divelogrepeat:
+    container_name: 2023-divelogrepeat
+    build: ./live-builds/2023-divelog-frontend
+    environment:
+      - VIRTUAL_HOST=divelogrepeat.test
+    volumes:
+      - ../2023-divelogrepeat:/var/www/2023-divelogrepeat
+    working_dir: /var/www/2023-divelogrepeat

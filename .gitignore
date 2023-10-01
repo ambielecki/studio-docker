@@ -1,7 +1,7 @@
 /.idea
 /db-data
 /junk
-/ssh-keys
+/live-builds/php-fpm-82/ssh-keys
 id_rsa
 id_rsa.pub
 known_hosts

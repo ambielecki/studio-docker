@@ -1,4 +1,4 @@
-FROM php:8.2.9-fpm
+FROM php:8.2.10-fpm
 
 RUN apt-get update && \
     apt-get upgrade -y
@@ -29,7 +29,7 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg &&  \
 
 # Install latest node and npm (node 16)
 RUN  apt-get update -yq \
-    && curl -sL https://deb.nodesource.com/setup_18.x | bash \
+    && curl -sL https://deb.nodesource.com/setup_20.x | bash \
     && apt-get install nodejs -yq
 
 # Install composer

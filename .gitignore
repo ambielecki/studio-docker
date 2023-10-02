@@ -1,5 +1,6 @@
 /.idea
 /db-data
+/dumps
 /junk
 /live-builds/php-fpm-82/ssh-keys
 id_rsa

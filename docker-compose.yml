@@ -33,6 +33,15 @@ services:
     links:
       - mysql-8
 
+  php-fpm-82-deploy:
+    container_name: php-fpm-82-deploy
+    build: live-builds/php-fpm-82-deploy
+    volumes:
+      - ../:/var/www/
+    working_dir: /var/www
+    links:
+      - mysql-8
+
   2023-bielecki:
     container_name: 2023-bielecki
     build: ./live-builds/2023-bielecki
@@ -63,3 +72,23 @@ services:
     volumes:
       - ../2023-divelogrepeat:/var/www/2023-divelogrepeat
     working_dir: /var/www/2023-divelogrepeat
+
+  base-blog:
+    container_name: base-blog
+    build: ./live-builds/base-blog
+    environment:
+      - VIRTUAL_HOST=blog.test
+    volumes:
+      - ../base-blog:/var/www/base-blog
+    working_dir: /var/www/base-blog
+
+  base-blog-api:
+    container_name: base-blog-api
+    build: ./live-builds/base-blog-api
+    environment:
+      - VIRTUAL_HOST=blog-api.test
+    volumes:
+      - ../base-blog-api:/var/www/base-blog-api
+    working_dir: /var/www/2023-base-blog-api
+    depends_on:
+      - php-fpm-82
